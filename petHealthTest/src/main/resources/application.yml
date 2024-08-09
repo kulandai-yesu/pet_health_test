@@ -1,0 +1,50 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: petHealthTest
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pet_health_test
+    username: postgres
+    password: Kulandai@12
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: kulandaiyesu48@gmail.com
+    password: xmkzxymimbgwrvjt
+    properties:
+      mail:
+        mime:
+          chartset: UTF
+        smtp:
+          writetimeout: 10000
+          connectiontimeout: 10000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+# Custom properties
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
